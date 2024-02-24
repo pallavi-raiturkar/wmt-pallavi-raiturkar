@@ -3,11 +3,12 @@ from fastapi.responses import FileResponse
 import csv
 import os
 from tempfile import NamedTemporaryFile
+import logging
 
 from app.services.utils import fetch_and_process_files_metadata
 
 router = APIRouter()
-
+logger = logging.getLogger("file_metadata_app")
 
 @router.get("/files/metadata/csv")
 async def get_files_metadata_csv():
@@ -18,6 +19,7 @@ async def get_files_metadata_csv():
     Returns:
         FileResponse: A CSV file containing the metadata of each file.
     """
+    logger.info("CSV endpoint triggered")
     global temp_file
     try:
         files_metadata = await fetch_and_process_files_metadata()

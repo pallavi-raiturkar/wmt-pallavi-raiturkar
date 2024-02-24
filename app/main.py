@@ -1,10 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-import uvicorn
+# import uvicorn
 
 from app.routes.health_route import router as health_router
 from app.routes.json_route import router as json_router
 from app.routes.csv_route import router as csv_router
+from app.logging_config import setup_logging
+
+# Configure logging
+setup_logging()
 
 app = FastAPI()
 
