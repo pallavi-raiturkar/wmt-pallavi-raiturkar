@@ -6,7 +6,7 @@ uvicorn app.main:app --host 0.0.0.0 --port 80 &
 # Wait for the server to launch
 echo "Waiting for server to launch on port 80..."
 while ! nc -z localhost 80; do
-  sleep 0.1 # wait for 1/10 of the second before checking again
+  sleep 0.1
 done
 echo "Server launched"
 

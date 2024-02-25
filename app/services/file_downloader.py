@@ -12,7 +12,7 @@ async def download_files_from_github(github_repo_url: str) -> list[dict[str, byt
         github_repo_url (str): The API URL of the repository to download files from.
 
     Returns:
-        list: A list of dictionaries with file names as keys and content as values.
+        list: A list of dictionaries with file names and content.
     """
     file_infos = await list_files_in_repo(github_repo_url)
     tasks = []

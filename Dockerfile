@@ -1,4 +1,4 @@
-# Use an official Python 3.11 runtime as a base image
+# Use official Python 3.11 runtime as a base image
 FROM python:3.11.8-bullseye
 
 # Install curl and netcat
@@ -10,7 +10,7 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
-# Install any dependencies
+# Install any dependencies (progress bar turned off to prevent thread overloading)
 RUN pip install --progress-bar off --no-cache-dir -r requirements.txt
 
 # Make port 80 available to the world outside this container

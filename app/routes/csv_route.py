@@ -38,6 +38,6 @@ async def get_files_metadata_csv():
         # Return the CSV file as a downloadable response
         return FileResponse(path=temp_file.name, filename="interview.csv", media_type='text/csv')
     except Exception as e:
-        # Ensure the temporary file is cleaned up in case of an error
+        # Ensure temporary file is cleaned up in case of an error
         os.unlink(temp_file.name)
         raise HTTPException(status_code=500, detail=str(e))

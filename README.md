@@ -24,17 +24,38 @@ docker build -t wmt-pallavi-raiturkar-im .
 ```
 ### Running the Docker Container
 
-After building the image, you can run the container with the following command:
+After building the image, you have two options to run the container: in detached mode or in foreground mode. 
+
+In both cases, the container will automatically call the CSV endpoint and download the CSV file when it starts. The downloaded file will be named interview.csv and will be located in the current working directory on your host machine. The server will continue to be up following the download.
+
+
+#### Detached Mode
+
+Run the container in detached mode (in the background) with the following command:
 
 ```bash
 docker run --name wmt-pallavi-raiturkar-file-metadata-0.0.1 -p 80:80 -d wmt-pallavi-raiturkar-im
 ```
 
-The container will automatically call the CSV endpoint and download the CSV file when it starts. The downloaded file will be named interview.csv and will be located in the current working directory on your host machine. The server will continue to be up following the download.
+In detached mode, you can view the logs at any time using the following command:
+
+```bash
+docker logs wmt-pallavi-raiturkar-file-metadata-0.0.1
+```
+
+#### Foreground Mode
+
+Alternatively, if you prefer to run the container in the foreground to see the logs directly in the terminal, omit the `-d` flag:
+
+```bash
+docker run --name wmt-pallavi-raiturkar-file-metadata-0.0.1 -p 80:80 wmt-pallavi-raiturkar-im
+```
+
+Running in foreground mode will allow you to see the output in real-time. To stop the container, you can use `Ctrl+C` in the terminal.
 
 ### Stopping the Container
 
-When you're finished, you can stop the running container using:
+If you ran the container in detached mode and you're finished, you can stop the running container using:
 
 ```bash
 docker stop wmt-pallavi-raiturkar-file-metadata-0.0.1

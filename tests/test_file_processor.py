@@ -3,8 +3,6 @@ from datetime import datetime
 from app.services.file_processor import calculate_file_metadata, calculate_word_count
 
 def test_calculate_word_counts():
-    # Corrected test cases to reflect accurate behavior
-
     # Content separated strictly by spaces
     content = b"hello world hello"
     word_count, unique_word_count = calculate_word_count(content)

@@ -29,4 +29,3 @@ async def test_download_files_from_github():
     assert len(files) > 0  # Assuming the repo contains files
     assert all(isinstance(file, dict) for file in files)
     assert all("filename" in file and "content" in file for file in files)
-    # Optionally, check for specific file details if you know what files should exist

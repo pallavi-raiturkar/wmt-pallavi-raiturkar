@@ -9,15 +9,14 @@ def setup_logging():
         level=LOGGING_LEVEL,
         format=LOGGING_FORMAT,
         handlers=[
-            logging.StreamHandler(sys.stdout)  # Ensure logs are printed to stdout
-            # Consider adding file handlers for production use
+            logging.StreamHandler(sys.stdout)
         ]
     )
 
-    # Example of configuring a specific logger for a module
+    # Generic logger
     logger = logging.getLogger("file_metadata_app")
     logger.setLevel(LOGGING_LEVEL)
 
-    # Suppress overly verbose logs from libraries that you don't control
+    # Suppress overly verbose logs
     logging.getLogger("uvicorn").setLevel(logging.WARNING)
     logging.getLogger("aiohttp").setLevel(logging.WARNING)

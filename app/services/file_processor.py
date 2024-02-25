@@ -3,7 +3,7 @@ from datetime import datetime
 
 def calculate_file_metadata(filename: str, content: bytes) -> dict:
     """
-    Calculates metadata for a given file, including SHA256 hash, file size, word count,
+    Calculates metadata for a given file, including SHA256 hash, file size in bytes, word count,
     number of unique words, and the current date.
 
     Args:
