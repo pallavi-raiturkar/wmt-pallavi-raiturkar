@@ -12,7 +12,7 @@ echo "Server launched"
 
 # Call the CSV endpoint and download the file
 echo "Downloading CSV file from the endpoint..."
-curl http://localhost:80/files/metadata/csv --output interview.csv
+curl http://localhost:80/files/metadata/csv --output /app/interview.csv
 
 # Keep the container running after the download
 echo "Download complete. Server is still running."

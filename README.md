@@ -26,15 +26,16 @@ docker build -t wmt-pallavi-raiturkar-im .
 
 After building the image, you have two options to run the container: in detached mode or in foreground mode. 
 
-In both cases, the container will automatically call the CSV endpoint and download the CSV file when it starts. The downloaded file will be named interview.csv and will be located in the current working directory on your host machine. The server will continue to be up following the download.
+The container will automatically call the CSV endpoint and download the CSV file when it starts. The downloaded file will be named interview.csv and will be located in the current working directory on your host machine. The server will continue to be up following the download.
 
+Note: When running the container, Docker might request access to your current directory or specified volume in order to save the interview.csv file to your system. Please ensure you grant the necessary permissions for Docker to access the directory where you wish to save the file.
 
 #### Detached Mode
 
 Run the container in detached mode (in the background) with the following command:
 
 ```bash
-docker run --name wmt-pallavi-raiturkar-file-metadata-0.0.1 -p 80:80 -d wmt-pallavi-raiturkar-im
+docker run --name wmt-pallavi-raiturkar-file-metadata-0.0.1 -p 80:80 -v $(pwd):/app -d wmt-pallavi-raiturkar-im
 ```
 
 In detached mode, you can view the logs at any time using the following command:
@@ -48,7 +49,7 @@ docker logs wmt-pallavi-raiturkar-file-metadata-0.0.1
 Alternatively, if you prefer to run the container in the foreground to see the logs directly in the terminal, omit the `-d` flag:
 
 ```bash
-docker run --name wmt-pallavi-raiturkar-file-metadata-0.0.1 -p 80:80 wmt-pallavi-raiturkar-im
+docker run --name wmt-pallavi-raiturkar-file-metadata-0.0.1 -p 80:80 -v $(pwd):/app wmt-pallavi-raiturkar-im
 ```
 
 Running in foreground mode will allow you to see the output in real-time. To stop the container, you can use `Ctrl+C` in the terminal.
